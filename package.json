@@ -6,8 +6,11 @@
   },
   "scripts": {
     "test:api": "cypress run --spec 'cypress/e2e/api/*.js'",
-    "test:web": "cypress run --spec 'cypress/e2e/web/*.js'",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:run:split": "cypress-split -- cypress run"
+  },
+  "devDependencies": {
+    "cypress-split": "^1.24.0"
   }
 }

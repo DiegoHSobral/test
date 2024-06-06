@@ -1,1 +1,6 @@
-export const baseUrl = 'https://jsonplaceholder.typicode.com/users';
+module.exports = {
+    e2e: {
+      baseUrl: 'https://dummyjson.com'
+    }
+  }
+  
