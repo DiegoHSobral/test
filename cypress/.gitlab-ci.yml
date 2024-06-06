@@ -1,0 +1,22 @@
+image: cypress/base:10
+
+stages:
+  - test
+
+cypress-test:
+  stage: test
+  parallel:
+    matrix:
+      - CYPRESS_SPLIT_PART: 1
+        CYPRESS_SPLIT_TOTAL: 3
+      - CYPRESS_SPLIT_PART: 2
+        CYPRESS_SPLIT_TOTAL: 3
+      - CYPRESS_SPLIT_PART: 3
+        CYPRESS_SPLIT_TOTAL: 3
+  script:
+    - npm install
+    - CYPRESS_SPLIT_PART=$CYPRESS_SPLIT_PART CYPRESS_SPLIT_TOTAL=$CYPRESS_SPLIT_TOTAL npm run cypress:run:split
+  artifacts:
+    when: always
+    paths:
+      - cypress/reports
